@@ -39,11 +39,7 @@ findMax(
 int
 cmpUint64_t(const void *first, const void *second)
 {
-        if (*((uint64_t *) first) > *((uint64_t *) second))
-                return 1;
-        else if (*((uint64_t *) first) < *((uint64_t*) second))
-                return -1;
-        return 0;
+        return (*((uint64_t *) first) - *((uint64_t *) second));
 }
 
 int
@@ -59,11 +55,7 @@ cmp3dPointRadVectorLen(const void *first, const void *second)
                 ((point *)second)->y * ((point *)second)->y +
                 ((point *)second)->z * ((point *)second)->z
         );
-        if (vector1 > vector2)
-                return 1;
-        else if (vector1 < vector2)
-                return -1;
-        return 0;
+        return vector1 - vector2;
 }
 
 int
@@ -79,11 +71,7 @@ cmpHumanBmi(const void *first, const void *second)
         bmi2 = ((human *)second)->weight_kg / (meters2 * meters2);
         /* Round bracket hE11 ^^ =] */
 
-        if (bmi1 > bmi2)
-                return 1;
-        else if (bmi1 < bmi2)
-                return -1;
-        return 0;
+        return bmi1 - bmi2;
 }
 
 int
@@ -99,11 +87,7 @@ cmpFloatCountOfOneBits(const void *first, const void *second)
                 if (i2 & (1UL << i))
                         count2++;
         }
-        if (count1 > count2)
-                return 1;
-        if (count1 < count2)
-                return -1;
-        return 0;
+        return count1 - count2;
 }
 
 int
