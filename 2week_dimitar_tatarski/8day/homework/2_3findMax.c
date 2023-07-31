@@ -55,7 +55,9 @@ cmp3dPointRadVectorLen(const void *first, const void *second)
                 ((point *)second)->y * ((point *)second)->y +
                 ((point *)second)->z * ((point *)second)->z
         );
-        return vector1 - vector2;
+        return (vector1 - vector2)*1000; /*Not certain that the double will be >0.001
+                                          * best will be with if else block (but slow)
+                                          */
 }
 
 int
@@ -71,7 +73,7 @@ cmpHumanBmi(const void *first, const void *second)
         bmi2 = ((human *)second)->weight_kg / (meters2 * meters2);
         /* Round bracket hE11 ^^ =] */
 
-        return bmi1 - bmi2;
+        return (bmi1 - bmi2)*1000;
 }
 
 int
