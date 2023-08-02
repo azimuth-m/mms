@@ -4,11 +4,29 @@
 void
 subseq(int arr[], int n, int dest[], int *new_n)
 {
-        int start_index = 0;
-        int end_index = 0;
-        int count = 0;
+        int cur_start = 0,
+            max_start = 0,
+            max_lenght = 1;
 
-        /* ... */
+        for (size_t i = 0; i < n; i++) {
+                if (arr[i-1] < arr[i]) {
+                        int cur_lenght = i - cur_start;
+
+                        if (cur_lenght > max_lenght) {
+                                max_lenght = cur_lenght;
+                                max_start = cur_start;
+                        }
+                        cur_start = i;
+                }
+        }
+int cur_lenght = n - cur_start;
+        if (cur_lenght > max_lenght) {
+                max_lenght = cur_lenght;
+                max_start = cur_start;
+        }
+*new_n = max_lenght;
+        for (size_t i = max_start; i < max_lenght; i++)
+                *(dest++) = arr[max_start + i];
 }
 
 int
