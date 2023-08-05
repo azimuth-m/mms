@@ -135,6 +135,23 @@ filter_color_component(struct PPM_Image_Buffer *buf, uint32_t rgb_mask)
                 buf->data[i].g = mod.pixel.g;
                 buf->data[i].b = mod.pixel.b;
                 /* Poneje manipulatePixel ot uniona ne e ukazatel,
-                 * trqbva nanovo da se prisvoqt stoinostite */
+                 * trqbva nanovo da se prisvoqt stoinostite
+                 */
+        }
+}
+
+void
+luminance_black_and_white(struct PPM_Image_Buffer *buf)
+{
+        uint8_t luminance_per_pixel;
+        for (size_t i = 0; i < (buf->w) * (buf->h); i++) {
+                luminance_per_pixel =
+                        buf->data[i].r * 0.299F +
+                        buf->data[i].g * 0.587F + 
+                        buf->data[i].b * 0.114F;
+                
+                buf->data[i].r = luminance_per_pixel;
+                buf->data[i].g = luminance_per_pixel;
+                buf->data[i].b = luminance_per_pixel;
         }
 }

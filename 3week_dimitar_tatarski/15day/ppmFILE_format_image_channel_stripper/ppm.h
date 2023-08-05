@@ -23,5 +23,5 @@ int read_ppm_color_bitmap(char *, struct PPM_Image_Buffer *);
 int write_ppm_color_bitmap(char *, struct PPM_Image_Buffer *);
 void printImageBuffer(struct PPM_Image_Buffer);
 void filter_color_component(struct PPM_Image_Buffer *, uint32_t);
-
+void luminance_black_and_white(struct PPM_Image_Buffer *);
 #endif

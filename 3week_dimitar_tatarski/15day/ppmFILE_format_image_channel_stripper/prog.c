@@ -30,7 +30,8 @@ main(int argc, char *argv[])
         struct PPM_Image_Buffer buf;
         read_ppm_color_bitmap(argv[1], &buf);
         //printImageBuffer(buf);
-        filter_color_component(&buf, mask);
+        //filter_color_component(&buf, mask); //strip channel
+        luminance_black_and_white(&buf); //convert to b&w using luminance method
         write_ppm_color_bitmap(argv[2], &buf);
         //printImageBuffer(buf);
         free(buf.data);
