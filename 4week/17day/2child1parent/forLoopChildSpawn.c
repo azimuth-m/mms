@@ -79,6 +79,7 @@ main()
         close(pipe_fd_list[0][1]);
 
         int result;
+        /* Ne e nujen wait, poneje read-a na pipa blokira, dokato ne prochete pravilniq broi danni*/
         read(pipe_fd_list[2][0], &result, sizeof(int));
         close(pipe_fd_list[2][0]);
 
