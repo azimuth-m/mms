@@ -34,8 +34,7 @@ childFun(int i)
                 printf("Sum of even nums in array (child 0): %d\n", evenSum);
                 write(pipe_fd_list[1][1], &evenSum, sizeof(int));
                 close(pipe_fd_list[1][1]);
-                } else if (i == 1) {
-
+        } else if (i == 1) {
                 /* Read evenSum, from proc 1 */
                 int localVar1;
                 read(pipe_fd_list[1][0], &localVar1, sizeof(int));
