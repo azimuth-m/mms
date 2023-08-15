@@ -78,9 +78,6 @@ main()
         write(pipe_fd_list[0][1], &randInts, sizeof(int) * ARRAYSIZE);
         close(pipe_fd_list[0][1]);
 
-        for (int i = 0; i < 3; i++)
-                wait(NULL);
-
         int result;
         read(pipe_fd_list[2][0], &result, sizeof(int));
         close(pipe_fd_list[2][0]);
