@@ -9,8 +9,8 @@
 #define ARRAYSIZE 10
 /* - Make 3 processes: 1 Parent, 2 child.
  * - Parent sends data to Child 1.
- * - Child 1 multiplies by 3 and sends the data to Child 2
- * - Child 2 check value. if even, square it, if odd, divide by two;
+ * - Child 1 sums even nums and sends the data to Child 2
+ * - Child 2 writes to pipe 2, the square of the sum, from pipe 1
  *   Then send to parent
  * - Parent prints result
  */
